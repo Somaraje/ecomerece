@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -112,11 +112,11 @@ model Notification {
   userId    String
   user      User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
   title     String
-  message   String
+  message   String               @db.Text
   type      NotificationType
   isRead    Boolean              @default(false)
   priority  NotificationPriority @default(NORMAL)
-  metadata  String?
+  metadata  Json?
   createdAt DateTime             @default(now())
   updatedAt DateTime             @updatedAt
 
