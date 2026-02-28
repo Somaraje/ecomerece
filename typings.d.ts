@@ -8,7 +8,7 @@ interface Product {
   mainImage: string;
   manufacturer: string;
   categoryId: string;
-  category: {name: string}?;
+  category?: {name: string};
   inStock: number;
 }
 
@@ -72,7 +72,7 @@ interface Order {
   status: "processing" | "canceled" | "delivered";
   city: string;
   country: string;
-  orderNotice: string?;
+  orderNotice?: string;
   total: number;
 }
 
